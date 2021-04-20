@@ -37,8 +37,8 @@ class CloudflareRealIpServiceProvider extends ServiceProvider
      */
     protected static function ips()
     {
-        $ipv4 = file_get_contents("https://www.cloudflare.com/ips-v4");
-        $ipv6 = file_get_contents("https://www.cloudflare.com/ips-v6");
+        $ipv4 = file_get_contents("../ips/ips-v4.txt");
+        $ipv6 = file_get_contents("../ips/ips-v6.txt");
 
         return (array_merge(explode("\n", $ipv4), explode("\n", $ipv6))) ? array_filter(array_merge(explode("\n", $ipv4), explode("\n", $ipv6))) : [];
     }
@@ -77,7 +77,7 @@ class CloudflareRealIpServiceProvider extends ServiceProvider
     public static function ip()
     {
         return static::onTrustedRequest(function () {
-            return filter_var(request()->header('CF_CONNECTING_IP'), FILTER_VALIDATE_IP);
+            return filter_var(request()->header('CF_IPCOUNTRY'), FILTER_VALIDATE_IP);
         }) ?: request()->ip();
     }
 
