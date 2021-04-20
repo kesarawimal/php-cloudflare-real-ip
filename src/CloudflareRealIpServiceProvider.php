@@ -90,7 +90,7 @@ class CloudflareRealIpServiceProvider extends ServiceProvider
     public static function country()
     {
         return static::onTrustedRequest(function () {
-            return request()->header('CF_IPCOUNTRY');
+            return request()->header('HTTP_CF_IPCOUNTRY');
         }) ?: '';
     }
 
