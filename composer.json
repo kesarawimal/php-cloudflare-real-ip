@@ -1,0 +1,33 @@
+{
+    "name": "kesarawimal/php-cloudflare-real-ip",
+    "description": "Get the real IP for PHP applications behind Cloudflare's reverse proxy.",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "laravel",
+        "cloudflare",
+        "real ip address"
+    ],
+    "homepage": "https://github.com/kesarawimal/php-cloudflare-real-ip",
+    "authors": [
+        {
+            "name": "Kesara",
+            "email": "kesara@devrolabs.com"
+        }
+    ],
+    "require": {
+        "php" : ">=7.0"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "Kesara\\" : "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kesara\\CloudflareRealIpServiceProvider"
+            ]
+        }
+    }
+}
